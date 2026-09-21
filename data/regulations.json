@@ -1,0 +1,88 @@
+{
+  "metadata": {
+    "purpose": "Simplified PPWR-based MVP0 test fixtures for software validation only.",
+    "legal_reliance": false,
+    "note": "Do not present these rules as complete or authoritative PPWR compliance logic."
+  },
+  "rules": [
+    {
+      "rule_id": "REG-001",
+      "article_reference": "PPWR Article 5(4)",
+      "name": "Heavy metals total limit",
+      "description": "MVP0 numeric maximum test for total lead, cadmium, mercury and hexavalent chromium.",
+      "applicability": {
+        "components": ["bottle_body", "cap", "label"]
+      },
+      "required_fields": ["heavy_metals_mg_kg"],
+      "evaluation": {
+        "type": "numeric_max",
+        "field": "heavy_metals_mg_kg",
+        "max": 100,
+        "unit": "mg/kg"
+      }
+    },
+    {
+      "rule_id": "REG-002",
+      "article_reference": "PPWR Article 5(5)",
+      "name": "Food-contact PFAS compliance",
+      "description": "MVP0 uses a pre-evaluated boolean instead of reproducing the full PFAS analytical thresholds.",
+      "applicability": {
+        "requires_current_food_contact": true
+      },
+      "required_fields": ["pfas_compliant"],
+      "evaluation": {
+        "type": "boolean_required",
+        "field": "pfas_compliant",
+        "required": true
+      }
+    },
+    {
+      "rule_id": "REG-003",
+      "article_reference": "PPWR Article 7 - simplified MVP0 fixture",
+      "name": "Minimum recycled content sample threshold",
+      "description": "Simplified 2030 MVP0 threshold used only to exercise screening logic for the sample PET beverage package.",
+      "applicability": {
+        "target_year_min": 2030,
+        "components": ["bottle_body", "cap", "label"]
+      },
+      "required_fields": ["recycled_content_pct"],
+      "evaluation": {
+        "type": "numeric_min",
+        "field": "recycled_content_pct",
+        "min": 30,
+        "unit": "%"
+      }
+    },
+    {
+      "rule_id": "REG-004",
+      "article_reference": "PPWR Article 6 - placeholder fixture",
+      "name": "Recyclability readiness placeholder",
+      "description": "Boolean sample rule to test architecture. This is not a PPWR recyclability score or full design-for-recycling assessment.",
+      "applicability": {
+        "target_year_min": 2030,
+        "components": ["bottle_body", "cap", "label"]
+      },
+      "required_fields": ["recyclability_ready"],
+      "evaluation": {
+        "type": "boolean_status_required",
+        "field": "recyclability_ready",
+        "required": true
+      }
+    },
+    {
+      "rule_id": "REG-005",
+      "article_reference": "PPWR Article 9",
+      "name": "Compostability sample applicability rule",
+      "description": "Included to test NOT_APPLICABLE handling. It does not apply to the MVP0 bottle body, cap, or ordinary label sample.",
+      "applicability": {
+        "components": ["tea_bag", "coffee_bag", "fruit_vegetable_sticky_label"]
+      },
+      "required_fields": ["compostable"],
+      "evaluation": {
+        "type": "boolean_required",
+        "field": "compostable",
+        "required": true
+      }
+    }
+  ]
+}

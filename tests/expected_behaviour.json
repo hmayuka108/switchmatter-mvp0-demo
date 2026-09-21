@@ -1,0 +1,25 @@
+{
+  "pdf_parsing": {
+    "pet_bottle_cap_spec.pdf": {
+      "component": "cap",
+      "current_material": "HDPE",
+      "thickness": {"value": 1.2, "unit": "mm"},
+      "food_contact": true
+    },
+    "pet_bottle_label_spec.pdf": {
+      "component": "label",
+      "current_material": "PP",
+      "thickness": {"value": 0.05, "unit": "mm"},
+      "food_contact": null
+    }
+  },
+  "screening_examples_for_cap_food_contact_true": {
+    "ALT-CAP-001": "ELIGIBLE",
+    "ALT-CAP-002": "ELIGIBLE",
+    "ALT-CAP-003": "ELIGIBLE",
+    "ALT-CAP-004": "EXCLUDED",
+    "ALT-CAP-005": "POTENTIAL",
+    "ALT-CAP-006": "EXCLUDED"
+  },
+  "final_score_formula": "0.5 * cost_score + 0.5 * properties_score"
+}

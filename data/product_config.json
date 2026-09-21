@@ -1,0 +1,50 @@
+{
+  "product_id": "PET-BEVERAGE-BOTTLE-MVP0",
+  "product_name": "PET Beverage Bottle Package",
+  "target_market": "EU",
+  "target_year": 2030,
+  "components": [
+    {
+      "component": "bottle_body",
+      "volume_cm3": 18.0,
+      "baseline": {
+        "material": "PET",
+        "density_g_cm3": 1.38,
+        "price_per_g_eur": 0.00155
+      },
+      "property_requirements": {
+        "stiffness": 8,
+        "impact_resistance": 7,
+        "barrier_performance": 9
+      }
+    },
+    {
+      "component": "cap",
+      "volume_cm3": 3.0,
+      "baseline": {
+        "material": "HDPE",
+        "density_g_cm3": 0.95,
+        "price_per_g_eur": 0.0017
+      },
+      "property_requirements": {
+        "stiffness": 8,
+        "chemical_resistance": 7,
+        "sealability": 9
+      }
+    },
+    {
+      "component": "label",
+      "volume_cm3": 0.65,
+      "baseline": {
+        "material": "PP",
+        "density_g_cm3": 0.90,
+        "price_per_g_eur": 0.0020
+      },
+      "property_requirements": {
+        "flexibility": 8,
+        "printability": 8,
+        "adhesion_compatibility": 7
+      }
+    }
+  ]
+}

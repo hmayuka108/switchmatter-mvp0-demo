@@ -1,0 +1,164 @@
+{
+  "candidates": [
+    {
+      "candidate_id": "ALT-CAP-001",
+      "name": "Recycled PP 35",
+      "component": "cap",
+      "material": "rPP",
+      "density_g_cm3": 0.90,
+      "price_per_g_eur": 0.0019,
+      "properties": {
+        "stiffness": 8,
+        "chemical_resistance": 8,
+        "sealability": 9
+      },
+      "regulation_data": {
+        "heavy_metals_mg_kg": 35,
+        "pfas_compliant": true,
+        "recycled_content_pct": 35,
+        "recyclability_ready": true,
+        "compostable": null
+      }
+    },
+    {
+      "candidate_id": "ALT-CAP-002",
+      "name": "Recycled HDPE 40",
+      "component": "cap",
+      "material": "rHDPE",
+      "density_g_cm3": 0.95,
+      "price_per_g_eur": 0.00175,
+      "properties": {
+        "stiffness": 7,
+        "chemical_resistance": 9,
+        "sealability": 9
+      },
+      "regulation_data": {
+        "heavy_metals_mg_kg": 42,
+        "pfas_compliant": true,
+        "recycled_content_pct": 40,
+        "recyclability_ready": true,
+        "compostable": null
+      }
+    },
+    {
+      "candidate_id": "ALT-CAP-003",
+      "name": "Recycled PP Premium 50",
+      "component": "cap",
+      "material": "rPP",
+      "density_g_cm3": 0.91,
+      "price_per_g_eur": 0.00215,
+      "properties": {
+        "stiffness": 9,
+        "chemical_resistance": 9,
+        "sealability": 10
+      },
+      "regulation_data": {
+        "heavy_metals_mg_kg": 30,
+        "pfas_compliant": true,
+        "recycled_content_pct": 50,
+        "recyclability_ready": true,
+        "compostable": null
+      }
+    },
+    {
+      "candidate_id": "ALT-CAP-004",
+      "name": "Virgin PP Reference",
+      "component": "cap",
+      "material": "PP",
+      "density_g_cm3": 0.90,
+      "price_per_g_eur": 0.00155,
+      "properties": {
+        "stiffness": 8,
+        "chemical_resistance": 9,
+        "sealability": 9
+      },
+      "regulation_data": {
+        "heavy_metals_mg_kg": 25,
+        "pfas_compliant": true,
+        "recycled_content_pct": 0,
+        "recyclability_ready": true,
+        "compostable": null
+      }
+    },
+    {
+      "candidate_id": "ALT-CAP-005",
+      "name": "Bio-based PP Trial",
+      "component": "cap",
+      "material": "bio-PP",
+      "density_g_cm3": 0.90,
+      "price_per_g_eur": 0.0024,
+      "properties": {
+        "stiffness": 8,
+        "chemical_resistance": 8,
+        "sealability": 8
+      },
+      "regulation_data": {
+        "heavy_metals_mg_kg": 28,
+        "pfas_compliant": null,
+        "recycled_content_pct": 35,
+        "recyclability_ready": true,
+        "compostable": null
+      }
+    },
+    {
+      "candidate_id": "ALT-CAP-006",
+      "name": "Experimental Polyolefin X",
+      "component": "cap",
+      "material": "PO-X",
+      "density_g_cm3": 0.93,
+      "price_per_g_eur": 0.00165,
+      "properties": {
+        "stiffness": 9,
+        "chemical_resistance": 8,
+        "sealability": 7
+      },
+      "regulation_data": {
+        "heavy_metals_mg_kg": 135,
+        "pfas_compliant": true,
+        "recycled_content_pct": 45,
+        "recyclability_ready": true,
+        "compostable": null
+      }
+    },
+    {
+      "candidate_id": "ALT-LABEL-001",
+      "name": "Recycled PP Label Film",
+      "component": "label",
+      "material": "rPP",
+      "density_g_cm3": 0.90,
+      "price_per_g_eur": 0.0021,
+      "properties": {
+        "flexibility": 9,
+        "printability": 8,
+        "adhesion_compatibility": 8
+      },
+      "regulation_data": {
+        "heavy_metals_mg_kg": 25,
+        "pfas_compliant": true,
+        "recycled_content_pct": 35,
+        "recyclability_ready": true,
+        "compostable": null
+      }
+    },
+    {
+      "candidate_id": "ALT-LABEL-002",
+      "name": "PETG Sleeve Trial",
+      "component": "label",
+      "material": "PETG",
+      "density_g_cm3": 1.27,
+      "price_per_g_eur": 0.0024,
+      "properties": {
+        "flexibility": 8,
+        "printability": 9,
+        "adhesion_compatibility": 7
+      },
+      "regulation_data": {
+        "heavy_metals_mg_kg": 40,
+        "pfas_compliant": null,
+        "recycled_content_pct": null,
+        "recyclability_ready": false,
+        "compostable": null
+      }
+    }
+  ]
+}
