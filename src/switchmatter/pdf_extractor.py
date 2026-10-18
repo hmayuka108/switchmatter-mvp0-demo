@@ -37,6 +37,19 @@ def extract_text(pdf_path: str | Path) -> str:
         raise PDFExtractionError(f"Could not extract text from PDF: {path}") from exc
 
 
+def extract_text_bytes(pdf_bytes: bytes) -> str:
+    """Return embedded text from in-memory PDF bytes without a temporary file."""
+    try:
+        with fitz.open(stream=pdf_bytes, filetype="pdf") as document:
+            if not document.is_pdf:
+                raise PDFExtractionError("Uploaded file is not a valid PDF")
+            return "".join(page.get_text() for page in document)
+    except PDFExtractionError:
+        raise
+    except (fitz.FileDataError, OSError, RuntimeError, ValueError) as exc:
+        raise PDFExtractionError("Could not extract text from uploaded PDF") from exc
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     """Print extracted PDF text for simple local/command-line use."""
 

@@ -1,36 +1,47 @@
-# SwitchMatter MVP0 Starter Pack
+# SwitchMatter Evidence Pipeline
 
-This repository starter defines the implementation contract for SwitchMatter MVP0.
+This application implements the primary packaging compliance workflow through Step 3:
 
-## MVP0 goal
+`Functional Envelope -> Component BOM -> Legal Gates -> KEEP / HOLD / REMOVE`
 
-Build and validate this end-to-end flow:
+Legacy MVP0 extraction and scoring modules remain in the repository for regression compatibility, but scoring and ranking are not part of the primary Streamlit workflow. The new workflow does not load or require `data/product_config.json`.
 
-`PDF -> native text extraction -> rule-based JSON extraction -> user confirmation -> component selection -> PPWR-based sample regulation screening -> scoring -> ranking`
+## Architecture
 
-MVP0 deliberately does **not** use an LLM. Missing information must never be guessed.
+- Step 0 stores independent per-SKU Functional Envelopes. Each field has a status, source, unit where required, and override history. Completeness is calculated separately for T1 through T4.
+- Step 1 stores multiple components per SKU. A component has a materialized property view plus long-form measurements, evidence references, provenance, and history.
+- Step 2 evaluates versioned rules as `PASS`, `FAIL`, `UNKNOWN`, or `NOT_APPLICABLE`. Unknown applicability never becomes non-applicable.
+- Step 3 aggregates any FAIL to REMOVE, otherwise any UNKNOWN or incomplete rule coverage to HOLD, and only fully evaluated passing coverage to KEEP.
 
-## Read before coding
+Runtime data is stored locally in `.switchmatter_data/pipeline.json` and is excluded from Git.
 
-1. `AGENTS.md`
-2. `docs/SPEC.md`
-3. `docs/DATA_SCHEMA.md`
-4. `docs/SCORING_LOGIC.md`
-5. `docs/TASKS.md`
+## Supported intake
 
-## Sample data
+- Brand product information: `.xlsx` worksheets with deterministic header aliases from `data/envelope_fields.json`. Mapped cells remain `extracted_unconfirmed`; absent fields remain unknown; unmapped cells and conflicting values are preserved.
+- Supplier evidence: text-embedded PDF files using native PyMuPDF extraction and field-local deterministic parsing.
+- Component BOM: `.xlsx` row tables with `Component Type` and optional component/property columns.
 
-- `data/product_config.json`
-- `data/alternative_materials.json`
-- `data/regulations.json`
+Scanned or image-only PDFs, `.xls`, password-protected workbooks, OCR, AI extraction, and hidden inference are not supported.
 
-## Sample PDFs
+## Confirmation and unknowns
 
-- `sample_pdfs/pet_bottle_cap_spec.pdf`
-- `sample_pdfs/pet_bottle_label_spec.pdf`
+Imported values never become confirmed automatically. Users can confirm, edit, or explicitly mark values unknown. Confirmed user values supersede extracted or assumed values and prior records remain in history. A partial envelope or BOM can be saved. Missing and unknown T1 data is visible and prevents a KEEP verdict.
 
-These PDFs contain embedded text and are intended to test native PDF extraction without OCR or AI.
+## Regulatory limitation
 
-## Legal note
+The supplied specification says its regulatory references, thresholds, methods, scope rules, and dates were not verified against source law. The included rule registry therefore keeps PFAS, heavy metals, food-contact, recycled-content, and tethered-closure rules unverified. They return UNKNOWN/HOLD and do not make definitive compliance claims. Verified source text, locus, version, applicability, and thresholds must be supplied before a rule can be activated.
 
-The regulation dataset is a simplified MVP0 test fixture inspired by PPWR. It is **not** a production compliance engine and must not be presented as legal advice or definitive PPWR compliance.
+## Functional Envelope limitation
+
+The referenced full Functional Envelope specification was not supplied. The registry contains only the envelope fields explicitly named in the implementation brief. Add authoritative definitions to `data/envelope_fields.json`; the application and completeness logic are data-driven.
+
+## Tests
+
+From `MVP0` in PowerShell:
+
+```powershell
+$env:PYTHONPATH = "src"
+python -m unittest discover -s tests -v
+```
+
+The suite includes legacy PDF/parser regression tests and new envelope, Excel, BOM, legal-gate, and verdict tests.

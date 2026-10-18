@@ -6,6 +6,8 @@ ANALYSIS_KEYS = {
     "upload_identity", "parsed", "analysis", "confirmed", "extraction_error",
     "analysis_error", "confirmation_errors", "candidate_overrides", "component",
     "current_material", "thickness_value", "thickness_unit", "food_contact",
+    "active_sku", "envelope", "components", "verdict", "excel_import", "envelope_xlsx", "bom_unmapped",
+    "sku_selector", "new_sku_id", "sku_error",
 }
 
 
@@ -62,6 +64,6 @@ def scoring_empty_message(screening, ranking):
 def reset_analysis_state(state):
     version = state.get("upload_widget_version", 0) + 1
     for key in list(state):
-        if key in ANALYSIS_KEYS or str(key).startswith(("override::", "pdf_upload_")):
+        if key in ANALYSIS_KEYS or str(key).startswith(("override::", "pdf_upload_", "supplier_file_")):
             state.pop(key, None)
     state["upload_widget_version"] = version

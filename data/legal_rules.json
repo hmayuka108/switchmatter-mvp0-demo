@@ -1,0 +1,14 @@
+{
+  "metadata": {
+    "registry_version": "2026-10-19",
+    "legal_reliance": false,
+    "note": "No rule is active for definitive automated conclusions because the supplied specification marks its legal references and thresholds as unverified."
+  },
+  "rules": [
+    {"rule_id": "PPWR-PFAS-PENDING", "name": "PPWR PFAS restriction", "applies_when": {"food_contact": true}, "attribute": "total_fluorine_mg_kg", "operator": "max", "value": null, "unit": "mg/kg", "on_fail": "REMOVE", "on_unknown": "HOLD", "source_doc": "PPWR", "source_locus": null, "source_version": null, "ref_verified": false, "confidence": "unverified"},
+    {"rule_id": "PPWR-HEAVY-METALS-PENDING", "name": "PPWR heavy metals", "applies_when": {}, "attribute": "sum_heavy_metals_mg_kg", "operator": "max", "value": null, "unit": "mg/kg", "on_fail": "REMOVE", "on_unknown": "HOLD", "source_doc": "PPWR", "source_locus": null, "source_version": null, "ref_verified": false, "confidence": "unverified"},
+    {"rule_id": "EU-FOOD-CONTACT-PENDING", "name": "Food contact conditions of use", "applies_when": {"food_contact": true}, "attribute": "conditions_of_use_covered", "operator": "equals", "value": true, "unit": null, "on_fail": "REMOVE", "on_unknown": "HOLD", "source_doc": "Regulation (EU) 10/2011", "source_locus": null, "source_version": null, "ref_verified": false, "confidence": "unverified"},
+    {"rule_id": "PPWR-RECYCLED-CONTENT-PENDING", "name": "PPWR recycled content", "applies_when": {}, "attribute": "recycled_content_share", "operator": "min", "value": null, "unit": "%", "on_fail": "REMOVE", "on_unknown": "HOLD", "source_doc": "PPWR", "source_locus": null, "source_version": null, "ref_verified": false, "confidence": "unverified"},
+    {"rule_id": "EU-TETHERED-CLOSURE-PENDING", "name": "Tethered closure requirement", "applies_when": {"component_type": "closure"}, "attribute": "tethering", "operator": "equals", "value": true, "unit": null, "on_fail": "REMOVE", "on_unknown": "HOLD", "source_doc": "EU packaging legislation", "source_locus": null, "source_version": null, "ref_verified": false, "confidence": "unverified"}
+  ]
+}

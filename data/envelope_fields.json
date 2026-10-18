@@ -1,0 +1,14 @@
+{
+  "metadata": {
+    "version": "2026-10-19",
+    "scope_note": "Only fields explicitly named in the supplied implementation brief are included. The referenced full Functional Envelope field specification was not supplied."
+  },
+  "fields": [
+    {"field_key": "product_name", "label": "Product name", "applies_to": ["common"], "data_type": "text", "unit": null, "allowed_values": null, "tier": "T4", "used_by": ["identity"], "expected_source": "brand", "regulatory_ref": null, "ref_verified": false, "aliases": ["product", "product name", "sku name"]},
+    {"field_key": "pack_format", "label": "Pack format", "applies_to": ["common"], "data_type": "text", "unit": null, "allowed_values": null, "tier": "T1", "used_by": ["legal_gates"], "expected_source": "brand", "regulatory_ref": null, "ref_verified": false, "aliases": ["pack format", "pack type", "packaging format"]},
+    {"field_key": "target_markets", "label": "Target markets", "applies_to": ["common"], "data_type": "list", "unit": null, "allowed_values": null, "tier": "T1", "used_by": ["rule_selection"], "expected_source": "brand", "regulatory_ref": null, "ref_verified": false, "aliases": ["market", "markets", "target market", "target markets"]},
+    {"field_key": "food_contact", "label": "Food contact", "applies_to": ["food_beverage", "cosmetic"], "data_type": "boolean", "unit": null, "allowed_values": [true, false], "tier": "T1", "used_by": ["food_contact_gates"], "expected_source": "brand", "regulatory_ref": null, "ref_verified": false, "aliases": ["food contact", "direct food contact", "food-contact"]},
+    {"field_key": "filling_line_temperature", "label": "Filling line temperature", "applies_to": ["food_beverage", "cosmetic"], "data_type": "number", "unit": "degC", "allowed_values": null, "tier": "T1", "used_by": ["conditions_of_use"], "expected_source": "brand", "regulatory_ref": null, "ref_verified": false, "aliases": ["filling temperature", "filling line temperature", "fill temperature"]}
+  ],
+  "derivations": []
+}
